@@ -1,5 +1,5 @@
-# passwords
- EasyPass generator
+# EasyPass 
+ password generator
 ## Description
 
 A free password generator that will help users create passwords.
