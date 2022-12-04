@@ -1,97 +1,58 @@
-// Assignment Code
+// All const strings 
 const generateBtn = document.getElementById("generate");
-const uppercases = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const uppercases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
-const spchar = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','"\"',']','^','_','`','{','|','}','~'];
+const spchars = "''`!#$%&()*+,-./:;<=>?@[\]^_{|}~";
 const lowercases = "abcdefghijklmnopqrstuvwxyz";
-const passwordText =document.getElementById("password")
+const passwordText = document.getElementById("password") // location of where the password will be displayed in the html
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", function generatePassword ()
-// Write password to the #password input
- {
-let characters = ""
-let length = prompt('How long do you want your password to be ?');
-if (length >=8 && length <= 128) { 
-  length == true;
+generateBtn.addEventListener("click", function generatePassword() {
+  let characters = ""
+  let length = prompt('How long do you want your password to be ?'); //Asking user for length of the password
+  if (length >= 8 && length <= 128) {   //Setting the boundaries for password length
+    length == true;   //Length is true if it falls between 8 and 128 characters
   } else {
-
-    length = false
-    return alert ("Password length is either too short or too long! Choose a length of atleast 8 characters and no more than 128 characters")
+    length = false //If false a message with directions is prompted to tell user that the password doesn't fall between the boundaries that were set 
+    return alert("Password length is either too short or too long! Choose a length of atleast 8 characters and no more than 128 characters")
   }
 
-let lowercase = confirm('Would you like to include lowercase ?');
- if(lowercase === true){
-  (characters += lowercases ); 
-  
-} else {return false;}
-
-let number = confirm('Would you like to include numbers ?');
- if(number = true){
-  (characters += numbers ); 
-  
-} else {return false;}
+  let uppercase = confirm('Would you like to include uppercase ?'); //asking user if they want to include uppercase
+  if (uppercase == true) { //if user selects OK then uppercase is included
+    (characters += uppercases); // adds uppercase to the characters string
+  } else { false; } //if user selects cancel then uppercase is not included
 
 
+  let lowercase = confirm('Would you like to include lowercase ?');//asking user if they want to include lowercase
+  if (lowercase == true) { //if user selects OK then lowercase is included
+    (characters += lowercases); // adds lowercase to the characters string
+  } else { false; } //if user selects cancel then lowercase is not included
+
+  let number = confirm('Would you like to include numbers ?');//asking user if they want to include numbers
+  if (number == true) { //if user selects OK then numbers are included
+    (characters += numbers);//adds numbers to the characters string
+  } else { false; } //if user selects cancel then numbers are not included
+
+  let spchar = confirm('Would you like to include special characters ?');//asking user if they want to include special characters
+  if (spchar == true) { //if user selects OK then special characters are included
+    (characters += spchars);//adds special characters to the characters string
+  } else { false; } //if user selects cancel then special characters are not included
+
+  passwordText.value = generatePassword(length, characters);
 
 
-passwordText.value = generatePassword(length,characters);
-
-
-  function generatePassword (length, characters) {
-    let password ="";
-    for (let i =0; i < length; i++) {
-     password += characters.charAt(Math.floor(Math.random() * characters.length)
-     );
+  function generatePassword(length, characters) { //function to generate password
+    let password = "";
+    for (let i = 0; i < length; i++) { //for loop for the password
+      password += characters.charAt(Math.floor(Math.random() * characters.length) //randomize the password with math floor and math random at the length given
+      );
     }
-    return password;
+    return password; //returning the final result of the password
   };
-  console.log(length)
-  console.log(numbers)
-  console.log(passwordText.value)
+ 
 }
 
 );
 
 
-
-
-  
-
-
-
-
-  
-  //const uppercases = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-  //const numbers = ['0','1','2','3','4','5','6','7','8','9'];
-  //const spchar = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','"\"',']','^','_','`','{','|','}','~'];
-
-
-    //if(length >= 8){
-  //  document.getElementById('password').innerHTML = length;
- // } 
-
-
- // if(uppercase,true){var uppercase = confirm('Would you like to include uppercase ?');}
- // else {alert(uppercase,false);}
-
- // if(number,true){var number = confirm('Would you like to include numbers');}
-//  else {alert(number,false);}
-
- // if(special,true){ var special = confirm('Would you like to include Special Characters');}
- // else {alert(special,false);}
-  
- // }
-  
-  //while(false) break;
-
-  
- // let lowercase
-   // if (lowercase == true) {
-     // document.getElementById('generate').innerHTML = lowercases();
-   // }
-  // if true  
-   //else
-   //while true
-  
