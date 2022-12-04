@@ -1,17 +1,20 @@
 // Assignment Code
-const generateBtn = document.querySelector("#generate");
-// var characters = ('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
-var characters = []
+const generateBtn = document.getElementById("generate");
+const uppercases = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const numbers = "0123456789";
+const spchar = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','"\"',']','^','_','`','{','|','}','~'];
+const lowercases = "abcdefghijklmnopqrstuvwxyz";
+const passwordText =document.getElementById("password")
 
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", function generatePassword ()
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  const passwordText = document.querySelector("#password");
-
-  passwordText.value = password
+ {
+let characters = ""
 let length = prompt('How long do you want your password to be ?');
 if (length >=8 && length <= 128) { 
-  length = true;
+  length == true;
   } else {
 
     length = false
@@ -19,32 +22,76 @@ if (length >=8 && length <= 128) {
   }
 
 let lowercase = confirm('Would you like to include lowercase ?');
- if(lowercase = true){
-  characters = lowercase + characters; 
-} else {alert(lowercase,false);
+ if(lowercase === true){
+  (characters += lowercases ); 
   
+} else {return false;}
+
+let number = confirm('Would you like to include numbers ?');
+ if(number = true){
+  (characters += numbers ); 
+  
+} else {return false;}
+
+
+
+
+passwordText.value = generatePassword(length,characters);
+
+
+  function generatePassword (length, characters) {
+    let password ="";
+    for (let i =0; i < length; i++) {
+     password += characters.charAt(Math.floor(Math.random() * characters.length)
+     );
+    }
+    return password;
+  };
+  console.log(length)
+  console.log(numbers)
+  console.log(passwordText.value)
 }
 
-}
-console.log(characters)
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword );
+);
 
 
 
-function generatePassword(length,characters) {
-  let passwordText ="";
-  var t = Math.floor(Math.random()*26) + 1;
-  for (i =0; i < length; i++) {
-    passwordText += characters.charAt(t);
-  }
-  return passwordText;
-};
-  
+
   
 
 
 
 
+  
+  //const uppercases = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  //const numbers = ['0','1','2','3','4','5','6','7','8','9'];
+  //const spchar = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','"\"',']','^','_','`','{','|','}','~'];
+
+
+    //if(length >= 8){
+  //  document.getElementById('password').innerHTML = length;
+ // } 
+
+
+ // if(uppercase,true){var uppercase = confirm('Would you like to include uppercase ?');}
+ // else {alert(uppercase,false);}
+
+ // if(number,true){var number = confirm('Would you like to include numbers');}
+//  else {alert(number,false);}
+
+ // if(special,true){ var special = confirm('Would you like to include Special Characters');}
+ // else {alert(special,false);}
+  
+ // }
+  
+  //while(false) break;
+
+  
+ // let lowercase
+   // if (lowercase == true) {
+     // document.getElementById('generate').innerHTML = lowercases();
+   // }
+  // if true  
+   //else
+   //while true
   
